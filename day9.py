@@ -48,7 +48,7 @@ def part2(input):
 
 
 if __name__ == "__main__":
-    with open('inputs/9.txt') as _file:
+    with open('9.txt') as _file:
         input_from_file = [int(line) for line in _file.read().splitlines()]
         inputs = [int(item) for item in input_from_file]
 
