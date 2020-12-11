@@ -13,7 +13,7 @@ def part1(nums):
     return jolt_1 * (jolt_3 + 1)
 
 
-def distinct_ways(nums, base, index, inf):
+def dist_ways_ways(nums, base, index, inf):
     if base == max(nums):
         return 1
 
@@ -25,7 +25,7 @@ def distinct_ways(nums, base, index, inf):
     ad = [x for x in nums if base < x <= (base + 3)]
     for a in ad:
         if a in nums:
-            w = w + distinct_ways(nums, a, index + 1, inf)
+            w = w + dist_ways_ways(nums, a, index + 1, inf)
 
     inf[key] = w
     return w
@@ -33,7 +33,7 @@ def distinct_ways(nums, base, index, inf):
 
 def part2(nums):
     inf = {}
-    return distinct_ways(nums, 0, 0, inf)
+    return dist_ways_ways(nums, 0, 0, inf)
 
 
 if __name__ == '__main__':
