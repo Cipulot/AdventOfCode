@@ -1,4 +1,5 @@
 from copy import deepcopy
+import time
 
 
 def part1_2(stat, fill_below, empty_above, part2=False):
@@ -62,3 +63,4 @@ if __name__ == '__main__':
     ]
     print("Part 1 answer: ", part1_2(deepcopy(start_stat), 0, 4))
     print("Part 2 answer: ", part1_2(deepcopy(start_stat), 0, 5, part2=True))
+    print("--- %s seconds ---" % (time.time() - start_time))
