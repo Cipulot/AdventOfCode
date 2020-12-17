@@ -80,13 +80,13 @@ def part_2(data):
 
 
 if __name__ == '__main__':
-    start_time = time.time()
+    part_1_time = time.time()
     with open('inputs/17.txt') as _file:
         data = [line for line in _file.read().splitlines()]
 
     print("Part 1 answer: ", part_1(data))
-    set_time = time.time() - start_time
-    print("--- %s seconds for reading from file and executing part_1 ---" % (set_time))
+    print("--- %s seconds for reading from file and executing part_1 ---" % (time.time() - part_1_time))
+    part_2_time = time.time()
     print("For part 2 this is gonna take some time (I don't have time rn to optimize)...")
     print("Part 2 answer: ", part_2(data))
-    print("--- %s seconds for executing part_2 ---" % (time.time() - set_time))
+    print("--- %s seconds for executing part_2 ---" % (time.time() - part_2_time))
