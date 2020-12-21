@@ -40,7 +40,7 @@ def allergens(input):
 
 
 if __name__ == '__main__':
-    with open("inputs/21.txt") as _file:
+    with open("21.txt") as _file:
         results = allergens(_file)
     print("Part 1 answer: ", results[0])
     print("Part 2 answer: ", results[1])
