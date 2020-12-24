@@ -1,23 +1,24 @@
 def part_1(data):
     cups = [*map(int,list(data))]
-    cc = 0
+    current_cup = 0
 
     for _ in range(100):
-        c1,c2,c3 = cups[(cc + 1) % len(cups)] , cups[(cc + 2) % len(cups)] , cups[(cc + 3) % len(cups)]
-        dc = cups[cc] - 1
-        ccv = cups[cc]
+        cup_1,cup_2,cup_3 = cups[(current_cup + 1) % len(cups)] , cups[(current_cup + 2) % len(cups)] , cups[(current_cup + 3) % len(cups)]
+        dc = cups[current_cup] - 1
+        current_cup_v = cups[current_cup]
 
-        cups.remove(c1)
-        cups.remove(c2)
-        cups.remove(c3)
+        cups.remove(cup_1)
+        cups.remove(cup_2)
+        cups.remove(cup_3)
 
         while dc not in cups:
-            dc = dc - 1 if dc > 1 else 9 
+            dc = dc - 1 if dc > 1 else 9
 
-        cups.insert(cups.index(dc) + 1, c3)
-        cups.insert(cups.index(dc) + 1, c2)
-        cups.insert(cups.index(dc) + 1, c1)
-        cc = ( cups.index(ccv) + 1 ) % len(cups)
+        cups.insert(cups.index(dc) + 1, cup_1)
+        cups.insert(cups.index(dc) + 1, cup_2)
+        cups.insert(cups.index(dc) + 1, cup_3)
+
+        current_cup = ( cups.index(current_cup_v) + 1 ) % len(cups)
 
     cups = cups[cups.index(1) + 1:] + cups[ :cups.index(1) ]
     return ''.join(map(str,cups))
@@ -36,22 +37,22 @@ def part_2(data):
 
     ls[1000000] = cups[0]
 
-    cc = cups[0]
+    current_cup = cups[0]
 
     for i in range(10000000):
-        c1 = ls[cc]
-        c2 = ls[c1]
-        c3 = ls[c2]
+        cup_1 = ls[current_cup]
+        cup_2 = ls[cup_1]
+        cup_3 = ls[cup_2]
 
-        ls[cc] = ls[c3]
-        dc =  1000000 if cc == 1 else cc -1
+        ls[current_cup] = ls[cup_3]
+        dc =  1000000 if current_cup == 1 else current_cup -1
 
-        while dc in [c1,c2,c3]:
+        while dc in [cup_1,cup_2,cup_3]:
             dc = 1000000 if dc == 1 else dc - 1
 
-        ls[c3] = ls[dc]
-        ls[dc] = c1
-        cc = ls[cc]
+        ls[cup_3] = ls[dc]
+        ls[dc] = cup_1
+        current_cup = ls[current_cup]
 
     return ls[1] * ls[ls[1]]
 
