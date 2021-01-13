@@ -26,3 +26,4 @@ if __name__ == '__main__':
         data = [int(line) for line in _file.read().splitlines()]
 
     print("Final solution: ", solution(data))
+    
